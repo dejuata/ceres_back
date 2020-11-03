@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.users',
     'apps.account',
+    'apps.docs',
     'apps.utils',
     'apps.zones',
     'apps.labors'
