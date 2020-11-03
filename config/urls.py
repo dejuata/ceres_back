@@ -15,11 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
+from rest_framework.schemas import get_schema_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/auth/', include('apps.gateway.urls')),
-    path('api/v1/users/', include('apps.users.urls')),
-    path('api/v1/zones/', include('apps.zones.urls')),
-    path('api/v1/labors/', include('apps.labors.urls')),
+
+    path('docs/', TemplateView.as_view(template_name='redoc.html', extra_context={'schema_url': 'openapi-schema'}), name='redoc'),
+    path('openapi', get_schema_view(
+        title="Ceres App",
+        description="API PWA",
+        version="1.0.0"),
+        name='openapi-schema'),
+
+    # URLS API
+    path('api/auth/', include('apps.account.urls')),
+    path('api/users/', include('apps.users.urls')),
+    path('api/zones/', include('apps.zones.urls')),
+    path('api/labors/', include('apps.labors.urls')),
 ]

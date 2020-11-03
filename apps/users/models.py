@@ -21,6 +21,7 @@ class CustomUserManager(BaseUserManager):
             password=password,
         )
         user.is_admin = True
+        user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
         return user
@@ -28,6 +29,8 @@ class CustomUserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
+    first_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Nombres")
+
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
