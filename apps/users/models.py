@@ -31,8 +31,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
         (1, 'Admin'),
         (2, 'Manager'),
-        (3, 'Operator'),
-        (4, 'Field manager')
+        (3, 'Field manager'),
+        (4, 'Operator')
     )
 
     uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4, verbose_name='Public ID')
@@ -40,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Nombres")
     last_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Apellidos")
     id_card = models.CharField(max_length=50, blank=False, null=False, unique=True, verbose_name="Cedula")
-    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=False, null=False, default=3)
+    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=False, null=False, default=2)
     birthdate = models.DateField(blank=True, null=True, verbose_name="Fecha de nacimiento")
     phone = models.CharField(max_length=50, blank=False, null=False, verbose_name="Celular")
     avatar_url = models.CharField(max_length=255, blank=True, null=True, verbose_name="Foto")
