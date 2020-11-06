@@ -35,7 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         (4, 'Operator')
     )
 
-    uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4, verbose_name='Public ID')
+    # uid = models.UUIDField(unique=True, editable=False, default=uuid.uuid4, verbose_name='Public ID')
     email = models.EmailField(unique=True, verbose_name='Email')
     first_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Nombres")
     last_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Apellidos")
