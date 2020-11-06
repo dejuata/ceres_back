@@ -7,15 +7,14 @@ Instalación
 ------------
 1. Crear ambiente virtual
 2. Ejecutar el archivo requirements.txt
-3. Configurar base de datos
-    3.1 Crear archivo .env en la raiz del proyecto y definir las siguientes variables:
-    ``
-    NAME=dev_ceres
-    USER=admin
-    PASSWORD=admin
-    HOST=localhost
-    PORT=5432
-    ``
+3. Configurar base de datos, crear archivo .env en la raiz del proyecto y definir las siguientes variables:
+```
+NAME=
+USER=
+PASSWORD=
+HOST=localhost
+PORT=5432
+```
 4. ``python manage.py makemigrations``
 5. ``python manage.py migrate``
 6. ``python manage.py runserver``
