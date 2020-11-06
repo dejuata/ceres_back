@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "d:\\dejuata\\Tutoriales\\Django\\Crud complete\\venv\\Scripts\\python.exe",
+    "python.pythonPath": "d:\\Univalle\\2020-I\\TIS\\Proyecto\\venv\\Scripts\\python.exe",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
