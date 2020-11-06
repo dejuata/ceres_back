@@ -10,7 +10,7 @@ Instalación
 ```
 $ git clone https://github.com/dejuata/ceres_back.git
 ```
-3. Ejecutar el archivo requirements.txt
+3. Ejecutar el archivo requirements.txt (El ambiente virtual debe estar activo)
 ```
 $ pip install -r requirements.txt
 ```
