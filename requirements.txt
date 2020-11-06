@@ -5,7 +5,7 @@ cryptography==3.2.1
 Django==3.1.2
 django-cors-headers==3.5.0
 djangorestframework==3.12.1
-djangorestframework-simplejwt==4.4.0
+djangorestframework-simplejwt==4.5.0
 flake8==3.8.4
 importlib-metadata==2.0.0
 mccabe==0.6.1
