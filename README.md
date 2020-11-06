@@ -5,9 +5,16 @@ Este proyecto es una aplicación tipo PWA, el sistema permite realizar el regist
 
 Instalación
 ------------
-1. Crear ambiente virtual
-2. Ejecutar el archivo requirements.txt
-3. Configurar base de datos, crear archivo .env en la raiz del proyecto y definir las siguientes variables:
+1. Crear ambiente virtual.
+2. Clonar el repositorio.
+```
+$ git clone https://github.com/dejuata/ceres_back.git
+```
+3. Ejecutar el archivo requirements.txt
+```
+$ pip install -r requirements.txt
+```
+4. Configurar base de datos, crear archivo .env en la raiz del proyecto y definir las siguientes variables:
 ```
 NAME=
 USER=
@@ -15,10 +22,10 @@ PASSWORD=
 HOST=localhost
 PORT=5432
 ```
-4. ``python manage.py makemigrations``
-5. ``python manage.py migrate``
-6. ``python manage.py runserver``
-7. Ingresar a [localhost:8000](http://localhost:8000/)
+5. ```$ python manage.py makemigrations```
+6. ```$ python manage.py migrate```
+7. ```$ python manage.py runserver```
+8. Ingresar a [localhost:8000](http://localhost:8000/)
 
 Funcionalidades básicas
 ------------
