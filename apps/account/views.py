@@ -39,16 +39,16 @@ class LoginView(APIView):
 
         if valid:
             status_code = status.HTTP_200_OK
-
             response = {
                 'success': True,
                 'status': status_code,
                 'message': 'User logged in successfully',
-                'access': serializer.data['access'],
+                'token': serializer.data['access'],
                 'refresh': serializer.data['refresh'],
                 'authenticatedUser': {
                     'email': serializer.data['email'],
-                    'role': serializer.data['role']
+                    'role': serializer.data['role'],
+                    'name': serializer.data['name']
                 }
             }
 

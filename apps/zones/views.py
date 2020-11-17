@@ -9,4 +9,4 @@ from apps.users.permission import IsAdminUser, IsManagerUser, IsFieldManagerUser
 class ZoneViewSet(viewsets.ModelViewSet):
     queryset = Zone.objects.all()
     serializer_class = ZoneSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)

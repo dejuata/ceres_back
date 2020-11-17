@@ -20,6 +20,7 @@ class LoginSerializer(serializers.Serializer):
     access = serializers.CharField(read_only=True)
     refresh = serializers.CharField(read_only=True)
     role = serializers.CharField(read_only=True)
+    name = serializers.CharField(read_only=True)
 
     def create(self, validated_date):
         pass
@@ -41,12 +42,12 @@ class LoginSerializer(serializers.Serializer):
             access_token = str(refresh.access_token)
 
             update_last_login(None, user)
-
             validation = {
                 'access': access_token,
                 'refresh': refresh_token,
                 'email': user.email,
                 'role': user.role,
+                'name': "{} {}".format(user.first_name, user.last_name)
             }
 
             return validation
