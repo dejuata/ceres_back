@@ -42,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     id_card = models.CharField(max_length=50, blank=False, null=False, unique=True, verbose_name="Cedula")
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=False, null=False, default=2)
     birthdate = models.DateField(blank=True, null=True, verbose_name="Fecha de nacimiento")
-    phone = models.CharField(max_length=50, blank=False, null=False, verbose_name="Celular")
+    phone = models.CharField(max_length=50, blank=True, null=False, verbose_name="Celular")
     avatar_url = models.CharField(max_length=255, blank=True, null=True, verbose_name="Foto")
     date_joined = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
