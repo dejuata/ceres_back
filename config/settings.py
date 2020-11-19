@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'apps.utils',
     'apps.zones',
     'apps.labors',
-    'apps.schedules'
+    'apps.schedules',
+    'apps.home'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

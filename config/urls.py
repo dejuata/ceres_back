@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/zones/', include('apps.zones.urls')),
     path('api/labors/', include('apps.labors.urls')),
     path('api/schedules/', include('apps.schedules.urls')),
+    path('api/home/', include('apps.home.urls')),
 ]
