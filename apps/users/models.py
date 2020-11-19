@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, verbose_name='Email')
     first_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Nombres")
     last_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Apellidos")
-    id_card = models.CharField(max_length=50, blank=False, null=False, unique=True, verbose_name="Cedula")
+    id_card = models.CharField(max_length=50, blank=False, null=False, verbose_name="Cedula")
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=False, null=False, default=2)
     birthdate = models.DateField(blank=True, null=True, verbose_name="Fecha de nacimiento")
     phone = models.CharField(max_length=50, blank=True, null=False, verbose_name="Celular")
