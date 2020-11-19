@@ -1,6 +1,10 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from apps.worklog.views import WorklogView
 
+router = routers.DefaultRouter()
+router.register(r'', WorklogView)
+
 urlpatterns = [
-    path('', WorklogView.as_view())
+    path('', include(router.urls))
 ]
