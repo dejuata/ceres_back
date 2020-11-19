@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'apps.docs',
     'apps.utils',
     'apps.zones',
-    'apps.labors'
+    'apps.labors',
+    'apps.schedules'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -163,7 +164,7 @@ REST_FRAMEWORK = {
 
 # Configure the JWT settings
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': False,

@@ -7,4 +7,4 @@ from apps.labors.serializers import LaborSerializer
 class LaborViewSet(viewsets.ModelViewSet):
     queryset = Labor.objects.all()
     serializer_class = LaborSerializer
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
