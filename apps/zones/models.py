@@ -8,6 +8,7 @@ class Zone(AbstractTableMeta, models.Model):
     soil_type = models.CharField(max_length=100, blank=True, null=True, verbose_name="Tipo de suelo")
     size = models.CharField(max_length=100, blank=True, null=True, verbose_name="Tamaño")
     state = models.CharField(max_length=100, blank=True, null=True, verbose_name="Estado")
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Zona de Campo"

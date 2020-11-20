@@ -8,7 +8,7 @@ from apps.users.models import User
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'password')
+        fields = ('email', 'password', 'role')
 
     def create(self, validated_data):
         auth_user = User.objects.create_user(**validated_data)
