@@ -2,8 +2,8 @@ from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.models import update_last_login
 from django.contrib.auth import authenticate
-
 from apps.users.models import User
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,6 +13,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         auth_user = User.objects.create_user(**validated_data)
         return auth_user
+
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField()

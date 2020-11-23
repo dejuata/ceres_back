@@ -1,8 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny
-
+from django.contrib.auth import authenticate
 from apps.account.serializer import RegisterSerializer, LoginSerializer
 from apps.users.models import User
 
@@ -17,13 +18,21 @@ class RegisterView(APIView):
 
         if valid:
             serializer.save()
-            status_code = status.HTTP_201_CREATED
+            status_code = status.HTTP_200_OK
+            email = request.data['email']
+            password = request.data['password']
+            user = authenticate(email=email, password=password)
+            refresh = RefreshToken.for_user(user)
+            refresh_token = str(refresh)
+            access_token = str(refresh.access_token)
 
             response = {
                 'success': True,
                 'status': status_code,
                 'message': 'User successfully registered!',
-                'user': serializer.data
+                'token': access_token,
+                'refresh': refresh_token,
+                'authenticatedUser': serializer.data
             }
 
             return Response(response, status=status_code)
