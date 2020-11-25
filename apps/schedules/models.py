@@ -2,7 +2,7 @@ from django.db import models
 from apps.utils.models import AbstractTableMeta
 from apps.zones.models import Zone
 from apps.labors.models import Labor
-from apps.users.models import User
+from apps.authentication.models import User
 
 
 class Schedule(AbstractTableMeta, models.Model):
@@ -16,6 +16,7 @@ class Schedule(AbstractTableMeta, models.Model):
     name_operator = models.CharField(max_length=100, null=True, blank=True)
     codigo_zona = models.CharField(max_length=100, null=True, blank=True)
     nombre_labor = models.CharField(max_length=100, null=True, blank=True)
+    state = models.BooleanField(default=True, verbose_name="Estado")
 
     class Meta:
         verbose_name = "Programacion"

@@ -4,7 +4,8 @@ from apps.utils.models import AbstractTableMeta
 
 class Zone(AbstractTableMeta, models.Model):
     id_zone = models.CharField(max_length=100, blank=False, null=False, unique=True, verbose_name="Código zona")
-    location = models.TextField(blank=False, null=False, verbose_name="Ubicación")
+    lat = models.TextField(blank=False, null=False, verbose_name="Latitud")
+    lng = models.TextField(blank=False, null=False, verbose_name="Longitud")
     soil_type = models.CharField(max_length=100, blank=True, null=True, verbose_name="Tipo de suelo")
     size = models.CharField(max_length=100, blank=True, null=True, verbose_name="Tamaño")
     state = models.CharField(max_length=100, blank=True, null=True, verbose_name="Estado")

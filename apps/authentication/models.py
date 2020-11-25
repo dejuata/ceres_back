@@ -1,7 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
+from django.db import models
 from rest_framework_simplejwt.tokens import RefreshToken
-import uuid
 
 
 class CustomUserManager(BaseUserManager):
@@ -19,12 +18,14 @@ class CustomUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password, **extra_fields):
-        extra_fields.setdefault('is_active', True)
-        extra_fields.setdefault('role', 1)
+        if password is None:
+            raise ValueError('Password should not be none')
 
-        if extra_fields.get('role') != 1:
-            raise ValueError('Superuser must have role of Global Admin')
-        return self.create_user(email, password, **extra_fields)
+        user = self.create_user(email, password, **extra_fields)
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
+        return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -40,7 +41,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         'email': 'email'
     }
 
-    email = models.EmailField(unique=True, verbose_name='Email')
+    email = models.EmailField(unique=True, db_index=True, verbose_name='Email')
+
     first_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Nombres")
     last_name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Apellidos")
     id_card = models.CharField(max_length=50, blank=False, null=False, verbose_name="Cedula")
@@ -49,7 +51,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(max_length=50, blank=True, null=False, verbose_name="Celular")
     avatar_url = models.CharField(max_length=255, blank=True, null=True, verbose_name="Foto")
     date_joined = models.DateTimeField(auto_now_add=True)
+
+    is_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     auth_provider = models.CharField(max_length=255, blank=False, null=False, default=AUTH_PROVIDERS.get('email'))
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.users.models import User
+from apps.authentication.models import User
 from rest_framework.exceptions import ErrorDetail, ValidationError
 from rest_framework.utils import html, model_meta, representation
 
