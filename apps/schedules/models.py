@@ -13,6 +13,7 @@ class Schedule(AbstractTableMeta, models.Model):
     zone = models.ForeignKey(Zone, on_delete=models.DO_NOTHING, verbose_name="Zona de Campo")
     labor = models.ForeignKey(Labor, on_delete=models.DO_NOTHING, verbose_name="Labor de Campo")
     operator = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name="Operario")
+
     name_operator = models.CharField(max_length=100, null=True, blank=True)
     codigo_zona = models.CharField(max_length=100, null=True, blank=True)
     nombre_labor = models.CharField(max_length=100, null=True, blank=True)
@@ -22,4 +23,4 @@ class Schedule(AbstractTableMeta, models.Model):
         verbose_name = "Programacion"
 
     def __str__(self):
-        return self.schedule_date
+        return str(self.id)

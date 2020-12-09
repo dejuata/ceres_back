@@ -221,3 +221,16 @@ dmypy.json
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,vscode
+apps/account/migrations/__init__.py
+apps/docs/migrations/__init__.py
+apps/labors/migrations/__init__.py
+apps/users/migrations/__init__.py
+apps/utils/migrations/__init__.py
+apps/zones/migrations/__init__.py
+
+apps/labors/migrations/0001_initial.py
+apps/users/migrations/0001_initial.py
+apps/zones/migrations/0001_initial.py
+apps/worklog/__init__.py
+apps/worklog/migrations/__init__.py
+apps/worklog/migrations/0001_initial.py

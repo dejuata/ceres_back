@@ -6,6 +6,9 @@ from apps.authentication.models import User
 from apps.schedules.models import Schedule
 from apps.labors.models import Labor
 from apps.zones.models import Zone
+from apps.home.serializers import ActividadSerializer
+import json
+
 
 class UserCountView(APIView):
     """
@@ -23,3 +26,18 @@ class UserCountView(APIView):
             'zonas': zonas
         }
         return Response(content)
+
+
+class ActivitiesUser(APIView):
+    """
+    Retornar las actividades asignadas a un usuario
+    """
+    renderer_classes = (JSONRenderer, )
+
+    def get(self, request, pk, format=None):
+        try:
+            actividades = ActividadSerializer(
+                Schedule.objects.filter(operator=pk), many=True).data
+            return Response({'actividades': actividades})
+        except Exception:
+            return Response({'message': 'No hay actividades para este operador'})

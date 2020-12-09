@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
@@ -27,7 +27,7 @@ SECRET_KEY = '2-%b=z*y&-t^dbm!_4wb1_47u4-*=hwmc0#vmfw(lar&m&c)an'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.labors',
     'apps.schedules',
     'apps.home',
+    'apps.worklogs'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -146,7 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'authentication.User'
@@ -155,7 +156,7 @@ AUTH_USER_MODEL = 'authentication.User'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         # 'rest_framework.permissions.IsAuthenticated',
-        # 'rest_framework.permissions.AllowAny'
+        'rest_framework.permissions.AllowAny',
         # 'rest_framework.permissions.IsAdminUser'
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
