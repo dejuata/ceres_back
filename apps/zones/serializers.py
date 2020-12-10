@@ -5,4 +5,4 @@ from apps.zones.models import Zone
 class ZoneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Zone
-        fields = ('id', 'id_zone', 'location', 'soil_type', 'size', 'state')
+        fields = ('id', 'id_zone', 'soil_type', 'size', 'state', 'lat', 'lng')

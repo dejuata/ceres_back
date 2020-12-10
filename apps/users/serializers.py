@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.users.models import User
+from apps.authentication.models import User
 from rest_framework.exceptions import ErrorDetail, ValidationError
 from rest_framework.utils import html, model_meta, representation
 
@@ -7,7 +7,7 @@ from rest_framework.utils import html, model_meta, representation
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'password', 'id_card', 'role', 'phone', 'birthdate')
+        fields = ('id', 'email', 'first_name', 'last_name', 'password', 'id_card', 'role', 'phone', 'birthdate')
         extra_kwargs = {'password': {'write_only': True, 'min_length': 6}}
 
     def create(self, validated_data):
@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         password = validated_data.pop('password')
-        #raise_errors_on_nested_writes('update', self, validated_data)
+        # raise_errors_on_nested_writes('update', self, validated_data)
         info = model_meta.get_field_info(instance)
         if not instance.password == password:
             instance.set_password(password)
