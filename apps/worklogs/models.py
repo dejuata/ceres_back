@@ -11,6 +11,7 @@ class Worklog(AbstractTableMeta, models.Model):
     description = models.TextField(null=True, blank=True, verbose_name="Descripción")
     # Evidencias
     file = models.FileField(blank=True, null=True, verbose_name="Imagen")
+    audio = models.FileField(blank=True, null=True, verbose_name="Audio")
     lat = models.CharField(max_length=100, null=True, blank=True, verbose_name="Latitud")
     lng = models.CharField(max_length=100, null=True, blank=True, verbose_name="Longitud")
 

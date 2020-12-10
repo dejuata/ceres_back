@@ -16,5 +16,6 @@ class WorlogSerializer(serializers.ModelSerializer):
             'nombre_labor',
             'state',
             'lat',
-            'lng'
+            'lng',
+            'audio'
         )
