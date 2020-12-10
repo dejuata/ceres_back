@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'apps.utils',
     'apps.zones',
     'apps.labors',
+    #Products
+    'apps.products',
+
     'apps.schedules',
     'apps.home',
     'apps.worklogs'
