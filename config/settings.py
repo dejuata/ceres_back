@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'apps.utils',
     'apps.zones',
     'apps.labors',
-    'apps.worklog'
+    'apps.worklog',
+    
+    #Products
+    'apps.products'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

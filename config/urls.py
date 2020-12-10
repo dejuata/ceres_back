@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/users/', include('apps.users.urls')),
     path('api/zones/', include('apps.zones.urls')),
     path('api/labors/', include('apps.labors.urls')),
+    path('api/products/', include('apps.products.urls')),
     path('api/worklog/', include('apps.worklog.urls')),
 ]
 
