@@ -18,6 +18,7 @@ class Schedule(AbstractTableMeta, models.Model):
     codigo_zona = models.CharField(max_length=100, null=True, blank=True)
     nombre_labor = models.CharField(max_length=100, null=True, blank=True)
     state = models.BooleanField(default=True, verbose_name="Estado")
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Programacion"
