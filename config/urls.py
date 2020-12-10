@@ -10,14 +10,10 @@ urlpatterns = [
     path('api/users/', include('apps.users.urls')),
     path('api/zones/', include('apps.zones.urls')),
     path('api/labors/', include('apps.labors.urls')),
-<<<<<<< HEAD
     path('api/products/', include('apps.products.urls')),
-    path('api/worklog/', include('apps.worklog.urls')),
-=======
     path('api/schedules/', include('apps.schedules.urls')),
     path('api/home/', include('apps.home.urls')),
     path('api/worklogs/', include('apps.worklogs.urls')),
->>>>>>> 0f3e12bb6ddcfbb5df02ae2ea328043619cd4abb
 ]
 
 if settings.DEBUG:
