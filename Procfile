@@ -1,1 +1,1 @@
-web: gunicorn ceres-pwa.wsgi --log-file -
+web: gunicorn CERES_BACK.wsgi --log-file -
