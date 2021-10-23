@@ -1,5 +1,5 @@
 """
-ASGI config for freeCodeSchoolAPI project.
+ASGI config for Ceres project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
